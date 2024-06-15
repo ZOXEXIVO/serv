@@ -1,17 +1,15 @@
-mod openid_configuration;
+mod configuration;
+pub use configuration::*;
 
 use axum::http::Uri;
-pub use openid_configuration::*;
 
 #[derive(Clone)]
 pub struct Endpoints {
-    pub baseUri: Uri
+    pub base_uri: Uri,
 }
 
 impl Endpoints {
-    pub fn new(baseUri: Uri) -> Self {
-        Endpoints {
-            baseUri
-        }
+    pub fn new(base_uri: Uri) -> Self {
+        Endpoints { base_uri }
     }
 }
